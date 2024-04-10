@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import java.time.LocalDate;
 
+@EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -21,7 +23,7 @@ public class BookedRoom {
     @Column(name = "check_in")
     private LocalDate checkInDate;
 
-    @Column(name = "check_in")
+    @Column(name = "check_out")
     private LocalDate checkOutDate;
 
     @Column(name = "guest_name")

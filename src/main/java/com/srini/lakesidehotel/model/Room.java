@@ -5,12 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
+@EnableAutoConfiguration
 @AllArgsConstructor
 @Getter
 @Setter
@@ -32,7 +34,7 @@ public class Room {
     @Lob
     private Blob photo;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BookedRoom> bookings;
 
     public Room() {
